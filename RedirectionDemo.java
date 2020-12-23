@@ -6,12 +6,14 @@ public class RedirectionDemo{
       Scanner n = new Scanner( System.in );
       //use hasNextLine()/nextLine() to loop over
       //all of the data
-      while(n.hasNextLine()){
+      while(n.hasNext()){
         Scanner w=new Scanner(n.nextLine());
         while(w.hasNext()){
           String word=w.next();
-          System.out.println(word);
+          System.out.print(word);
+          if(w.hasNext()) System.out.print(" ");
         }
+        System.out.println();
       }
 
       //If you want to read the input word by word
