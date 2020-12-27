@@ -18,7 +18,7 @@ public class MakeStars{
         Scanner w=new Scanner(n.nextLine());
         while(w.hasNext()){
           String word=w.next();
-          System.out.print(word);
+          System.out.print(starify(word));
           if(w.hasNext()) System.out.print(" ");
         }
         System.out.println();
