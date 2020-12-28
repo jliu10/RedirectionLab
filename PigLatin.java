@@ -1,7 +1,12 @@
 import java.util.*;
 public class PigLatin{
+  public static boolean isVowel(char a){
+    return a=="a"||a=="e"||a=="i"||a=="o"||a=="u";
+  }
+
   public static String pigLatinSimple(String s){
-    return "";
+    String result="";
+    if(isVowel(s.charAt(0))) result+=s+"hay";
   }
 
   public static String pigLatin(String s){
