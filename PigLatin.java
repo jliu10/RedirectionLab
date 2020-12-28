@@ -1,20 +1,29 @@
 import java.util.*;
 public class PigLatin{
   public static boolean isVowel(char a){
-    return a=="a"||a=="e"||a=="i"||a=="o"||a=="u";
+    return a=='a'||a=='e'||a=='i'||a=='o'||a=='u';
   }
 
   public static String pigLatinSimple(String s){
+    s=s.toLowerCase();
     String result="";
-    if(isVowel(s.charAt(0))) result+=s+"hay";
+    if(isVowel(s.charAt(0))) result=s+"hay";
+    else{
+      result=s;
+      if(s.length()>1) result=s.substring(1,s.length())+s.substring(0,1);
+      result+="ay";
+    }
+    return result;
   }
 
   public static String pigLatin(String s){
-    return "";
+    s=s.toLowerCase();
+    return s;
   }
 
   public static String pigLatinBest(String s){
-    return "";
+    s=s.toLowerCase();
+    return s;
   }
 
   public static void main( String[]args ){
