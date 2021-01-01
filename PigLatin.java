@@ -25,8 +25,18 @@ public class PigLatin{
   public static String pigLatin(String s){
     s=s.toLowerCase();
     String result="";
-    //if()
-    return s;
+    if(s.length()>=2 && isDigraph(s.substring(0,2))){
+      result=s;
+      if(s.length()>2) result=s.substring(2,s.length())+s.substring(0,2);
+      result+="ay";
+    }
+    else if(isVowel(s.charAt(0))) result=s+"hay";
+    else{
+      result=s;
+      if(s.length()>1) result=s.substring(1,s.length())+s.substring(0,1);
+      result+="ay";
+    }
+    return result;
   }
 
   public static String pigLatinBest(String s){
@@ -44,7 +54,7 @@ public class PigLatin{
         Scanner w=new Scanner(n.nextLine());
         while(w.hasNext()){
           String word=w.next();
-          System.out.print(pigLatinSimple(word));
+          System.out.print(pigLatin(word));
           if(w.hasNext()) System.out.print(" ");
         }
         System.out.println();
