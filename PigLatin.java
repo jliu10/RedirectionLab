@@ -1,7 +1,13 @@
-import java.util.*;
+ import java.util.*;
 public class PigLatin{
   public static boolean isVowel(char a){
     return a=='a'||a=='e'||a=='i'||a=='o'||a=='u';
+  }
+
+  public static boolean isDigraph(String a){
+    String digraphs="bl,br,ch,ck,cl,cr,dr,fl,fr,gh,gl,gr,ng,ph,pl,"+
+    "pr,qu,sc,sh,sk,sl,sm,sn,sp,st,sw,th,tr,tw,wh,wr";
+    return digraphs.contains(a);
   }
 
   public static String pigLatinSimple(String s){
@@ -18,6 +24,8 @@ public class PigLatin{
 
   public static String pigLatin(String s){
     s=s.toLowerCase();
+    String result="";
+    //if()
     return s;
   }
 
