@@ -10,6 +10,16 @@ public class PigLatin{
     return digraphs.contains(a);
   }
 
+  public static boolean isLetter(String a){
+    String letters="abcdefghijklmnopqrstuvwxyz";
+    return letters.contains(a);
+  }
+
+  public static boolean isNumber(String a){
+    String numbers="0123456789";
+    return numbers.contains(a);
+  }
+
   public static String pigLatinSimple(String s){
     s=s.toLowerCase();
     String result="";
@@ -41,7 +51,32 @@ public class PigLatin{
 
   public static String pigLatinBest(String s){
     s=s.toLowerCase();
-    return s;
+    String result="";
+    if(!isLetter(s.substring(0,1))) result=s;
+    else{
+      String punc="";
+      if(!isLetter(s.substring(s.length()-1,s.length())) &&
+         !isNumber(s.substring(s.length()-1,s.length()))){
+           punc=s.substring(s.length()-1,s.length());
+      }
+      if(s.length()>=2 && isDigraph(s.substring(0,2))){
+        if(punc.length()>0) s=s.substring(0,s.length()-1);
+        result=s;
+        if(s.length()>2) result=s.substring(2,s.length())+s.substring(0,2);
+        result+="ay"+punc;
+      }
+      else if(isVowel(s.charAt(0))){
+        if(punc.length()>0) s=s.substring(0,s.length()-1);
+        result=s+"hay"+punc;
+      }
+      else{
+        if(punc.length()>0) s=s.substring(0,s.length()-1);
+        result=s;
+        if(s.length()>1) result=s.substring(1,s.length())+s.substring(0,1);
+        result+="ay"+punc;
+      }
+    }
+    return result;
   }
 
   public static void main( String[]args ){
@@ -54,7 +89,7 @@ public class PigLatin{
         Scanner w=new Scanner(n.nextLine());
         while(w.hasNext()){
           String word=w.next();
-          System.out.print(pigLatin(word));
+          System.out.print(pigLatinBest(word));
           if(w.hasNext()) System.out.print(" ");
         }
         System.out.println();
