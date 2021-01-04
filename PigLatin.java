@@ -1,4 +1,4 @@
- import java.util.*;
+import java.util.*;
 public class PigLatin{
   public static boolean isVowel(char a){
     return a=='a'||a=='e'||a=='i'||a=='o'||a=='u';
